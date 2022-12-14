@@ -1,13 +1,7 @@
 import "./TodoInput.scss";
 import { useState } from "react";
 
-const TodoInput = ({ label, handleInput }) => {
-  const [showTask, setShowTask] = useState(false);
-
-  const handleClick = () => {
-    setShowTask(!showTask);
-  };
-
+const TodoInput = ({ label, handleInput, handleClick }) => {
   return (
     <div className="todo-input">
       <label className="todo-input__label" htmlFor={label}></label>
@@ -16,7 +10,7 @@ const TodoInput = ({ label, handleInput }) => {
         type="text"
         id={label}
         placeholder="Add your task here..."
-        onInput={handleInput}
+        onChange={handleInput}
       />
       <button
         onClick={handleClick}

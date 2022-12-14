@@ -3,6 +3,7 @@ import Nav from "./components/Nav/Nav";
 import TodoInput from "./components/TodoInput/TodoInput";
 import TodoTask from "./components/TodoTask/TodoTask";
 import { useState } from "react";
+import tasksArr from "./data/mockData";
 
 const App = () => {
   const [addTask, setAddTask] = useState("");
@@ -31,7 +32,7 @@ const App = () => {
         addTask={addTask}
         handleClick={handleClick}
       />
-      <TodoTask label={addTask} />
+      <TodoTask tasksArr={tasksArr} />
     </div>
   );
 };
