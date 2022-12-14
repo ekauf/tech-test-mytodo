@@ -1,9 +1,37 @@
 import "./App.scss";
+import Nav from "./components/Nav/Nav";
+import TodoInput from "./components/TodoInput/TodoInput";
+import TodoTask from "./components/TodoTask/TodoTask";
+import { useState } from "react";
 
 const App = () => {
+  const [addTask, setAddTask] = useState("");
+  const [showTask, setShowTask] = useState(false);
+
+  const handleClick = () => {
+    setShowTask(!showTask);
+  };
+
+  const handleInput = (event) => {
+    const userInput = event.target.value;
+    console.log(userInput);
+    setAddTask(userInput);
+  };
+
+  // const addToTaskArr = () => {
+  //   const newTask =
+  // };
+
   return (
-    <div className="App">
-      <h1>My Todos</h1>
+    <div>
+      <Nav />
+      <TodoInput
+        label="new task"
+        handleInput={handleInput}
+        addTask={addTask}
+        handleClick={handleClick}
+      />
+      <TodoTask label={addTask} />
     </div>
   );
 };
